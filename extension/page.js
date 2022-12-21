@@ -34,22 +34,7 @@ function CaptureScreenshot() {
 	var player = document.getElementsByClassName("video-stream")[0];
 
 	var time = player.currentTime;
-
-	title += " ";
-
-	let minutes = Math.floor(time / 60)
-
-	time = Math.floor(time - (minutes * 60));
-
-	if (minutes > 60) {
-		let hours = Math.floor(minutes / 60)
-		minutes -= hours * 60;
-		title += hours + "-";
-	}
-
-	title += minutes + "-" + time;
-
-	title += " " + appendixTitle;
+	title += "@" + Math.floor(1000 * time) + "ms";
 
 	var canvas = document.createElement("canvas");
 	canvas.width = player.videoWidth;
